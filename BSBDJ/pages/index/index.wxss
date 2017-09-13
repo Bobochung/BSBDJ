@@ -1,0 +1,11 @@
+/*item的内容样式*/
+.itemContent{
+  color: black;
+  font-size: 35rpx;
+}
+.banner{
+  width: 100%;
+  padding-top:0%;
+  border-radius:5%;
+  border: 2rpx solid #CCCCCC;
+}

@@ -1,0 +1,48 @@
+<view class="container">
+
+<scroll-view scroll-x="false" style="height: {{ windowHeight+'px'}}" scroll-y="true" bindscrolltoupper="upper" bindscrolltolower="lower">
+  <swiper indicator-dots="true" indicator-active-color="rgba(255,255,255,0.8) "indicator-color="rgba(204,0,51,1)"
+     autoplay="true" interval="3000">
+    <block wx:for="{{banner}}" wx:key="*this" >
+      <swiper-item >
+        <image src="{{item}}" class="banner"/>
+      </swiper-item>
+     </block>
+    </swiper>
+    <block wx:for="{{dataList}}">
+    <!--整个item开始-->
+        <view class="item">
+        <!--item头部开始-->
+          <view class="itemHeader" >
+            <image class="userAvator" src="{{item.profile_image}}"  />
+            <view class="headerRight"  >
+              <text class="headerName">{{item.name}}</text>
+              <text class="headerTime">{{item.passtime}}</text>
+            </view>
+          </view>
+        <!--item头部结束-->
+        <!--item内容-->
+          <text class="itemContent">{{item.text}}</text>
+        <!--item底部开始-->
+          <view class="itemFooter">
+              <view>
+                <image class="footerImg" src="/images/zan.png" />{{item.love}}
+              </view>
+              <view>
+                <image class="footerImg" src="/images/unzan.png" />{{item.hate}}
+              </view>
+              <view>
+                  <image class="footerImg" src="/images/share.png" />{{item.favourite}}
+              </view>
+              <view>
+                <image class="footerImg" src="/images/comment.png" />{{item.comment}}
+              </view>
+          </view>
+            <!--item底部结束-->
+        </view>
+         <!--整个item结束-->
+     </block>
+  </scroll-view>
+</view>
+<loading hidden="{{isHiddenLoading}}">加载中...</loading>
+<toast duration="1500" bindchange="closeToast" hidden="{{isHiddenToast}}">加载完成</toast>
